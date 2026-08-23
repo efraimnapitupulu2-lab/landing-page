@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Efraim R.H. Napitupulu — Landing Page Pribadi</title>
+<meta name="description" content="Landing page pribadi Efraim R.H. Napitupulu, siswa kelas XII SMA Negeri 1 Gebang, pecinta musik dan seni.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #211f1c;
+    --paper: #f5efe2;
+    --paper-dim: #ece3cf;
+    --moss: #4f6b52;
+    --moss-deep: #34462f;
+    --amber: #d69a3f;
+    --line: #beb191;
+    --white: #fffdf8;
+    --radius: 2px;
+    --measure: 62ch;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img{ max-width:100%; display:block; }
+
+  a{ color: var(--moss-deep); }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible{
+    outline: 3px solid var(--amber);
+    outline-offset: 3px;
+  }
+
+  .eyebrow{
+    font-family: 'Space Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--moss-deep);
+  }
+
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    color: var(--ink);
+    margin: 0 0 .4em;
+    line-height: 1.08;
+  }
+
+  .wrap{
+    max-width: 1040px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  /* ---------- Skip link ---------- */
+  .skip-link{
+    position:absolute;
+    left:-999px;
+    top:auto;
+    background: var(--ink);
+    color: var(--paper);
+    padding: .8em 1.2em;
+    z-index: 100;
+    font-family:'Space Mono',monospace;
+    font-size:.85rem;
+  }
+  .skip-link:focus{
+    left: 1rem;
+    top: 1rem;
+  }
+
+  /* ---------- Staff-line signature motif ---------- */
+  .staff{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .staff path{
+    fill:none;
+    stroke: var(--moss);
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    animation: draw 2.4s ease forwards;
+  }
+  .staff .note{
+    fill: var(--amber);
+    opacity: 0;
+    animation: fadeIn .6s ease forwards;
+    animation-delay: 1.8s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+  @keyframes fadeIn{ to{ opacity: 1; } }
+
+  @media (prefers-reduced-motion: reduce){
+    .staff path{ animation:none; stroke-dashoffset:0; }
+    .staff .note{ animation:none; opacity:1; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ---------- Header / Hero ---------- */
+  header.hero{
+    padding: 3.2rem 0 2.4rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav.top-nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.2rem 1.5rem 0;
+    max-width: 1040px;
+    margin-inline:auto;
+    font-family:'Space Mono', monospace;
+    font-size:.78rem;
+  }
+  nav.top-nav ul{
+    list-style:none;
+    display:flex;
+    gap: 1.4rem;
+    margin:0; padding:0;
+  }
+  nav.top-nav a{
+    text-decoration:none;
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+  }
+  nav.top-nav a:hover{ border-color: var(--amber); }
+
+  .hero-grid{
+    margin-top: 2.6rem;
+    display:grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.5rem;
+    align-items:center;
+  }
+
+  .hero-portrait{
+    background: var(--white);
+    padding: .6rem;
+    box-shadow: 6px 6px 0 var(--moss-deep);
+    border: 1px solid var(--ink);
+    justify-self: end;
+    max-width: 300px;
+  }
+  .hero-portrait img{ aspect-ratio: 3/4; object-fit: cover; }
+  .hero-portrait figcaption{
+    font-family:'Space Mono', monospace;
+    font-size:.68rem;
+    letter-spacing:.05em;
+    color: var(--moss-deep);
+    padding-top: .5rem;
+    text-align:center;
+  }
+
+  h1{ font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight:600; }
+  h1 em{ font-style:italic; font-weight:500; color: var(--moss-deep); }
+
+  .tagline{
+    max-width: var(--measure);
+    font-size: 1.05rem;
+    color: #45423b;
+  }
+
+  .hero-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem;
+    margin-top: 1.4rem;
+    padding:0; list-style:none;
+  }
+  .hero-tags li{
+    font-family:'Space Mono', monospace;
+    font-size:.72rem;
+    border: 1px solid var(--moss);
+    color: var(--moss-deep);
+    padding: .3em .7em;
+    border-radius: var(--radius);
+  }
+
+  /* ---------- Sections ---------- */
+  section{ padding: 3.4rem 0; }
+  section + section{ border-top: 1px solid var(--line); }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+  }
+  .section-head .num{
+    font-family:'Space Mono', monospace;
+    font-size:.78rem;
+    color: var(--amber);
+  }
+
+  /* About */
+  .about-body{ max-width: var(--measure); font-size:1.02rem; }
+  .about-body p + p{ margin-top: 1em; }
+
+  /* Hobbies / interests as an article grid */
+  .interest-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 1.4rem;
+  }
+  .interest-grid article{
+    background: var(--paper-dim);
+    padding: 1.4rem;
+    border-left: 3px solid var(--moss);
+  }
+  .interest-grid h3{ font-size:1.15rem; margin-bottom:.3rem; }
+  .interest-grid p{ margin:0; font-size:.94rem; color:#4a473e; }
+
+  /* Education timeline */
+  .timeline{ list-style:none; margin:0; padding:0; }
+  .timeline li{
+    display:grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    border-top: 1px dashed var(--line);
+  }
+  .timeline li:first-child{ border-top:none; }
+  .timeline time{
+    font-family:'Space Mono', monospace;
+    font-size:.8rem;
+    color: var(--moss-deep);
+  }
+  .timeline h3{ font-size:1.05rem; margin:0 0 .2rem; }
+  .timeline p{ margin:0; font-size:.92rem; color:#4a473e; }
+
+  /* Gallery */
+  figure.gallery-item{
+    margin:0;
+    background: var(--white);
+    border:1px solid var(--ink);
+    padding:.5rem;
+  }
+  figure.gallery-item img{ aspect-ratio: 4/5; object-fit: cover; }
+  figure.gallery-item figcaption{
+    font-family:'Space Mono', monospace;
+    font-size:.7rem;
+    padding-top:.5rem;
+    color: var(--moss-deep);
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 1.2rem;
+  }
+
+  /* Contact */
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.4rem;
+  }
+  .contact-info p{ max-width: 34ch; }
+  .contact-info a.email{
+    display:inline-block;
+    margin-top:.6rem;
+    font-family:'Space Mono', monospace;
+    font-size: .95rem;
+    text-decoration:none;
+    border-bottom: 1px solid var(--moss);
+  }
+
+  form.contact-form{ display:grid; gap:1.1rem; }
+  .field{ display:flex; flex-direction:column; gap:.35rem; }
+  .field label{
+    font-family:'Space Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color: var(--moss-deep);
+  }
+  .field input,
+  .field textarea{
+    font-family:'Work Sans', sans-serif;
+    font-size: .98rem;
+    padding: .7em .8em;
+    border: 1px solid var(--ink);
+    background: var(--white);
+    color: var(--ink);
+    border-radius: var(--radius);
+  }
+  .field textarea{ resize: vertical; min-height: 110px; }
+  .field small{ font-size:.76rem; color:#6b6656; }
+
+  .required-flag{ color: var(--amber); }
+
+  button.submit-btn{
+    justify-self:start;
+    font-family:'Space Mono', monospace;
+    font-size:.88rem;
+    letter-spacing:.05em;
+    background: var(--ink);
+    color: var(--paper);
+    border:none;
+    padding: .85em 1.6em;
+    cursor:pointer;
+    border-radius: var(--radius);
+    transition: transform .15s ease, background .15s ease;
+  }
+  button.submit-btn:hover{ background: var(--moss-deep); }
+  button.submit-btn:active{ transform: translateY(1px); }
+
+  .form-status{
+    font-family:'Space Mono', monospace;
+    font-size:.82rem;
+    min-height: 1.4em;
+    color: var(--moss-deep);
+  }
+  .form-status[data-state="error"]{ color:#a3402f; }
+
+  /* Footer */
+  footer{
+    padding: 2rem 0 2.6rem;
+    font-family:'Space Mono', monospace;
+    font-size:.72rem;
+    color:#6b6656;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:.6rem;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 780px){
+    nav.top-nav{ flex-direction:column; gap:.6rem; padding-top:1rem; }
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero-portrait{ justify-self:start; order:-1; max-width: 220px; }
+    .contact-grid{ grid-template-columns: 1fr; }
+    .timeline li{ grid-template-columns: 1fr; gap:.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#konten-utama">Langsung ke konten utama</a>
+
+<header class="hero">
+  <nav class="top-nav" aria-label="Navigasi utama">
+    <span>Efraim Ricardo Hasiholan Napitupulu — PSIK 25D</span>
+    <ul>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#minat">Minat</a></li>
+      <li><a href="#pendidikan">Pendidikan</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Landing page pribadi</p>
+      <h1>Efraim Ricardo Hasiholan <em>Napitupulu</em></h1>
+      <p class="tagline">
+        Mahasiswa Ilmu Komputer di Universitas Negri Medan, aktif di perkuliahan, dan menaruh minat
+        besar pada musik serta kerohanian. Halaman ini adalah ruang kecil untuk
+        memperkenalkan diri, karya, dan cara menghubungi saya.
+      </p>
+      <ul class="hero-tags">
+        <li>Musik</li>
+        <li>Seni Rupa</li>
+        <li>OSIS</li>
+        <li>Kelas XII</li>
+      </ul>
+    </div>
+
+    <figure class="hero-portrait">
+      <img src="assets/profile.jpg" alt="Foto Efraim Ricardo Hasiholan Napitupulu berdiri di area luar ruangan mengenakan kaos casual berwarna gelap, bersandar pada pagar berwarna pink dengan latar pepohonan tropis.">
+      <figcaption>Efraim Ricardo Hasiholan Napitupulu</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap" style="margin-top:2.2rem;">
+    <svg class="staff" viewBox="0 0 1000 60" role="presentation" aria-hidden="true" preserveAspectRatio="none">
+      <path d="M0,30 Q250,0 500,30 T1000,30"></path>
+      <circle class="note" cx="180" cy="22" r="5"></circle>
+      <circle class="note" cx="480" cy="34" r="5"></circle>
+      <circle class="note" cx="800" cy="20" r="5"></circle>
+    </svg>
+  </div>
+</header>
+
+<main id="konten-utama" class="wrap">
+
+  <section id="tentang" aria-labelledby="tentang-judul">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2 id="tentang-judul">Tentang Saya</h2>
+    </div>
+    <div class="about-body">
+      <p>
+        Saya Efraim Ricardo Hasiholan Napitupulu, mahasiswa Ilmu Komputer di Universitas Negri Medan. Di luar kegiatan
+        akademik, saya cukup aktif mengikuti Unit Kegiatan Mahasiswa Kriten Prostestan (UKMKP), tempat saya
+        belajar bekerja sama, mengatur waktu, dan mengambil tanggung jawab
+        dalam kegiatan kerohanian.
+      </p>
+      <p>
+        Musik dan kerohanian menjadi cara saya menyeimbangkan rutinitas perkuliahan —
+        baik sekadar mendengarkan, bermain alat musik, maupun saat teduh di waktu senggang.
+      </p>
+    </div>
+  </section>
+
+  <section id="minat" aria-labelledby="minat-judul">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2 id="minat-judul">Musik &amp; Kerohanian</h2>
+    </div>
+    <div class="interest-grid">
+      <article>
+        <h3>Musik</h3>
+        <p>Menikmati mendengarkan dan memainkan musik sebagai cara bersantai sekaligus menyalurkan ekspresi diri.</p>
+      </article>
+      <article>
+        <h3>Kerohanian</h3>
+        <p>Suka saat teduh membaca teks-teks keagamaan, serta terlibat dalam kegiatan kerohanian di kampus.</p>
+      </article>
+      <article>
+        <h3>Organisasi</h3>
+        <p>Aktif di Unit Kegiatan Mahasiswa Kriten Prostestan (UKMKP), terlibat dalam perencanaan dan pelaksanaan kegiatan perkuliahan.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="pendidikan" aria-labelledby="pendidikan-judul">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2 id="pendidikan-judul">Pendidikan</h2>
+    </div>
+    <ol class="timeline">
+      <li>
+        <time datetime="2023">2025 — sekarang</time>
+        <div>
+          <h3>Universitas Negri Medan</h3>
+          <p>Program Studi Ilmu Komputer,Stambuk 2025 kelas D.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="galeri" aria-labelledby="galeri-judul">
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2 id="galeri-judul">Galeri</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="gallery-item">
+        <img src="assets/profile.jpg" alt="Efraim berdiri di luar ruangan dengan latar pepohonan tropis dan bangunan beratap seng kuning.">
+        <figcaption>Dokumentasi pribadi</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="kontak" aria-labelledby="kontak-judul">
+    <div class="section-head">
+      <span class="num">05</span>
+      <h2 id="kontak-judul">Kontak</h2>
+    </div>
+
+    <div class="contact-grid">
+      <aside class="contact-info">
+        <p>Ada pertanyaan atau ingin sekadar menyapa? Silakan kirim pesan lewat formulir, atau langsung lewat email.</p>
+        <a class="email" href="mailto:efraim.napitupulu@example.com">efraim.napitupulu@example.com</a>
+      </aside>
+
+      <form class="contact-form" novalidate>
+        <div class="field">
+          <label for="nama">Nama <span class="required-flag" aria-hidden="true">*</span></label>
+          <input type="text" id="nama" name="nama" required aria-required="true" autocomplete="name" placeholder="Nama lengkap">
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span class="required-flag" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" placeholder="nama@email.com">
+          <small>Digunakan hanya untuk membalas pesan Anda.</small>
+        </div>
+
+        <div class="field">
+          <label for="pesan">Pesan <span class="required-flag" aria-hidden="true">*</span></label>
+          <textarea id="pesan" name="pesan" required aria-required="true" placeholder="Tulis pesan Anda di sini..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Kirim pesan</button>
+        <p class="form-status" role="status" aria-live="polite" id="form-status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>&copy; 2026 Efraim Ricardo Hasiholan Napitupulu</span>
+  <span>Dibangun dengan HTML5 semantik</span>
+</footer>
+
+<script>
+  const form = document.querySelector('.contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama');
+    const email = document.getElementById('email');
+    const pesan = document.getElementById('pesan');
+
+    if (!nama.value.trim() || !email.value.trim() || !pesan.value.trim()) {
+      status.textContent = 'Mohon lengkapi semua kolom yang wajib diisi.';
+      status.dataset.state = 'error';
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value.trim())) {
+      status.textContent = 'Format email belum valid, coba periksa kembali.';
+      status.dataset.state = 'error';
+      email.focus();
+      return;
+    }
+
+    status.dataset.state = 'success';
+    status.textContent = 'Terima kasih, ' + nama.value.trim() + '. Pesan Anda telah diterima.';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
